@@ -56,8 +56,8 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 // TO THE NAME OF THIS ONE FILE
 //*******************************************************
 
-//@Disabled
-public class LocalTensorFlow extends LinearOpMode {
+@Disabled
+public class localTensorFlow extends LinearOpMode {
    private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
    private static final String LABEL_FIRST_ELEMENT = "Quad";
    private static final String LABEL_SECOND_ELEMENT = "Single";
