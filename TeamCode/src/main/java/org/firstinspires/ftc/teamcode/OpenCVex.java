@@ -75,21 +75,33 @@ public class OpenCVex extends LinearOpMode
 
             // Don't burn CPU cycles busy-looping in this sample
             sleep(50);
+
+
+/*******************************************************************
+*     ___   __  ____________  _   ______  __  _______  __  _______ *
+*    /   | / / / /_  __/ __ \/ | / / __ \/  |/  / __ \/ / / / ___/ *
+*   / /| |/ / / / / / / / / /  |/ / / / / /|_/ / / / / / / /\__ \  *
+*  / ___ / /_/ / / / / /_/ / /|  / /_/ / /  / / /_/ / /_/ /___/ /  *
+* /_/  |_\____/ /_/  \____/_/ |_/\____/_/  /_/\____/\____//____/   *
+*******************************************************************/
+
+            // move forward and push wobble goal
+            // pick up rings as pushing TBD
+            // park on the line next to wobble goal drop off
+            // setup shooting
+
+
+            if ((pipeline.getAnalysis() >= 162|| pipeline.getAnalysis() <= 165)){
+                // movement - 3 rings
+            }
+            else if ((pipeline.getAnalysis() >= 158|| pipeline.getAnalysis() <= 161)){
+                // movement - 2 rings
+            }
+            else if ((pipeline.getAnalysis() >= 145|| pipeline.getAnalysis() <= 154)){
+                // movement - 1 rings
+
+            }
         }
-
-        if ((pipeline.getAnalysis() >= 162|| pipeline.getAnalysis() <= 165)){
-            //movement - 3 rings
-
-        }
-        else if ((pipeline.getAnalysis() >= 158|| pipeline.getAnalysis() <= 161)){
-            // movement - 2 rings
-        }
-        else if ((pipeline.getAnalysis() >= 145|| pipeline.getAnalysis() <= 154)){
-            // movement - 1 rings
-
-        }
-
-
     }
 
     public static class SkystoneDeterminationPipeline extends OpenCvPipeline
