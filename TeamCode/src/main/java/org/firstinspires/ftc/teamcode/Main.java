@@ -22,7 +22,11 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -36,11 +40,20 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvInternalCamera;
 import org.openftc.easyopencv.OpenCvPipeline;
 
-@TeleOp
-public class OpenCVex extends LinearOpMode
+@Autonomous(name = "Main")
+public class Main extends LinearOpMode
 {
     OpenCvInternalCamera phoneCam;
     SkystoneDeterminationPipeline pipeline;
+
+    DcMotor motorFrontRight;
+    DcMotor motorFrontLeft;
+    DcMotor motorBackRight;
+    DcMotor motorBackLeft;
+    DcMotor motorFrontLift;
+    Servo servoDoor1;
+    Servo servoDoor2;
+    Servo servoDoor3;
 
     @Override
     public void runOpMode()
@@ -55,7 +68,7 @@ public class OpenCVex extends LinearOpMode
         // out when the RC activity is in portrait. We do our actual image processing assuming
         // landscape orientation, though.
         phoneCam.setViewportRenderingPolicy(OpenCvCamera.ViewportRenderingPolicy.OPTIMIZE_VIEW);
-
+        // lambda func
         phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
         {
             @Override
@@ -65,6 +78,22 @@ public class OpenCVex extends LinearOpMode
             }
         });
 
+        telemetry.addData("Status", "Initialized");
+
+        //
+        motorFrontRight = hardwareMap.dcMotor.get("motor front right");
+        motorFrontLeft = hardwareMap.dcMotor.get("motor front left");
+        motorBackLeft = hardwareMap.dcMotor.get("motor back left");
+        motorBackRight = hardwareMap.dcMotor.get("motor back right");
+        motorFrontLift = hardwareMap.dcMotor.get("motor front lift");
+        servoDoor1 = hardwareMap.servo.get("servoS1");
+        servoDoor2 = hardwareMap.servo.get("servoS2");
+        servoDoor3 = hardwareMap.servo.get("servoS3");
+        // Tell the driver that initialization is complete.
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+
+        // start on play - wait for second tap
         waitForStart();
 
         while (opModeIsActive())
@@ -74,16 +103,16 @@ public class OpenCVex extends LinearOpMode
             telemetry.update();
 
             // Don't burn CPU cycles busy-looping in this sample
-            sleep(50);
+            sleep(300);
 
 
 /*******************************************************************
-*     ___   __  ____________  _   ______  __  _______  __  _______ *
-*    /   | / / / /_  __/ __ \/ | / / __ \/  |/  / __ \/ / / / ___/ *
-*   / /| |/ / / / / / / / / /  |/ / / / / /|_/ / / / / / / /\__ \  *
-*  / ___ / /_/ / / / / /_/ / /|  / /_/ / /  / / /_/ / /_/ /___/ /  *
-* /_/  |_\____/ /_/  \____/_/ |_/\____/_/  /_/\____/\____//____/   *
-*******************************************************************/
+ *     ___   __  ____________  _   ______  __  _______  __  _______ *
+ *    /   | / / / /_  __/ __ \/ | / / __ \/  |/  / __ \/ / / / ___/ *
+ *   / /| |/ / / / / / / / / /  |/ / / / / /|_/ / / / / / / /\__ \  *
+ *  / ___ / /_/ / / / / /_/ / /|  / /_/ / /  / / /_/ / /_/ /___/ /  *
+ * /_/  |_\____/ /_/  \____/_/ |_/\____/_/  /_/\____/\____//____/   *
+ *******************************************************************/
 
             // move forward and push wobble goal
             // pick up rings as pushing TBD

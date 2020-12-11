@@ -23,7 +23,8 @@ import java.util.List;
  * In this sample, we demonstrate how to use the {@link OpenCvPipeline#onViewportTapped()}
  * callback to switch which stage of a pipeline is rendered to the viewport for debugging
  * purposes. We also show how to get data from the pipeline to your OpMode.
- */
+**/
+
 @TeleOp
 public class GoalDetector extends LinearOpMode
 {
@@ -51,7 +52,7 @@ public class GoalDetector extends LinearOpMode
 
         while (opModeIsActive())
         {
-            telemetry.addData("Num contours found", stageSwitchingPipeline.getNumContoursFound());
+            telemetry.addData("Contours found", stageSwitchingPipeline.getNumContoursFound());
             telemetry.update();
             sleep(100);
         }
