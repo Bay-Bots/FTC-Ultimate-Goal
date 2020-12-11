@@ -138,7 +138,7 @@ public class Main extends LinearOpMode
                 motorBackRight.setPower(0);
 
             }
-            else if ((pipeline.getAnalysis() >= 145|| pipeline.getAnalysis() <= 154)){
+            else if ((pipeline.getAnalysis() >= 145 || pipeline.getAnalysis() <= 154)){
                 // movement - 1 rings
                 servoDoor3.setPosition(.1);
                 motorFrontLeft.setPower(0);
