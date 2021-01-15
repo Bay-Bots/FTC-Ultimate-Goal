@@ -118,7 +118,7 @@ public class Main extends LinearOpMode
         // park on the line next to wobble goal drop off
         // setup shooting
 
-            if ((pipeline.getAnalysis() >= 162|| pipeline.getAnalysis() <= 165)){
+            if ((pipeline.getAnalysis() >= 162 && pipeline.getAnalysis() <= 165)){
                 // movement - 3 rings
                 motorFrontLeft.setPower(0);
                 motorFrontRight.setPower(-5);
@@ -128,7 +128,7 @@ public class Main extends LinearOpMode
                 sleep(500);
             }
 
-            else if ((pipeline.getAnalysis() >= 158|| pipeline.getAnalysis() <= 161)){
+            else if ((pipeline.getAnalysis() >= 158 && pipeline.getAnalysis() <= 161)){
                 // movement - 2 rings
                 motorFrontLeft.setPower(0);
                 motorFrontRight.setPower(-5);
@@ -138,7 +138,7 @@ public class Main extends LinearOpMode
                 sleep(500);
             }
 
-            else if ((pipeline.getAnalysis() >= 145 || pipeline.getAnalysis() <= 154)){
+            else if ((pipeline.getAnalysis() >= 145 && pipeline.getAnalysis() <= 154)){
                 // movement - 1 rings
                 motorFrontLeft.setPower(0);
                 motorFrontRight.setPower(-5);
