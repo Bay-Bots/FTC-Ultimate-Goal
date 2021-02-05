@@ -50,7 +50,6 @@ public class Main extends LinearOpMode
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
-    DcMotor motorFrontLift;
     Servo servoDoor1;
     Servo servoDoor2;
     Servo servoDoor3;
@@ -85,7 +84,6 @@ public class Main extends LinearOpMode
         motorFrontLeft = hardwareMap.dcMotor.get("motor front left");
         motorBackLeft = hardwareMap.dcMotor.get("motor back left");
         motorBackRight = hardwareMap.dcMotor.get("motor back right");
-        motorFrontLift = hardwareMap.dcMotor.get("motor front lift");
         servoDoor1 = hardwareMap.servo.get("servoS1");
         servoDoor2 = hardwareMap.servo.get("servoS2");
         servoDoor3 = hardwareMap.servo.get("servoS3");
